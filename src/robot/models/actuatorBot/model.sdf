@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
   <model name="actuatorBot">
-    <static>true</static>
+    <static>false</static>
 
     <link name='base'>
           <pose>0 0 .0025 0 0 0</pose>

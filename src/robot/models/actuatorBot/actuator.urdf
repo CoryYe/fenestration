@@ -10,181 +10,252 @@
 
   <link name="base_link">
     <visual>
+      <origin rpy="0 0 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.14 0.26 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/base.dae"/>
       </geometry>
-      <material name="blue"/>
     </visual>
+    <inertial>
+        <mass value="1.0"/>
+        <inertia ixx="0.015" iyy="0.0375" izz="0.0375" ixy="0" ixz="0" iyz="0"/>
+     </inertial> 
     <collision>
       <geometry>
-        <box size="0.14 0.26 0.005"/>
+        <box size="0.13 0.25 0.005"/>
       </geometry>
     </collision>
   </link>
 
   <link name="carriage1">
     <visual>
+      <origin rpy="0 0 0" xyz="-0.0025 0 0"/>
       <geometry>
-        <box size="0.12 0.03 0.02"/>
+        <mesh filename="model://actuatorBot/meshes/carriage.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.12 0.03 0.015"/>
+      </geometry>
+    </collision>
   </link>
 
   <joint name="base_to_carriage1" type="fixed">
     <parent link="base_link"/>
     <child link="carriage1"/>
-    <origin xyz="0 -0.05 0.01"/>
+    <origin xyz="0 0.06 0.0125"/>
   </joint>
 
 
   <link name="carriage2">
     <visual>
+       <origin rpy="0 0 0" xyz="-0.0025 0 0"/>
       <geometry>
-        <box size="0.12 0.03 0.02"/>
+        <mesh filename="model://actuatorBot/meshes/carriage.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.12 0.03 0.015"/>
+      </geometry>
+    </collision>
   </link>
 
   <joint name="base_to_carriage2" type="fixed">
     <parent link="base_link"/>
     <child link="carriage2"/>
-    <origin xyz="0 0.05 0.01"/>
+    <origin xyz="0 -0.06 0.0125"/>
   </joint>
+
+
+  <link name="middle">
+    <visual>
+       <origin rpy="0 0 1.57059633" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="model://actuatorBot/meshes/middle.dae"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.12 0.04 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="middleStuff" type="fixed">
+    <parent link="base_link"/>
+    <child link="middle"/>
+    <origin xyz="0 0 0.0125"/>
+  </joint>
+
+
 
 
 
   <link name="arml1">
     <visual>
+       <origin rpy="1.57059633 0 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
   <joint name="carriage1 to arml1" type="fixed">
     <parent link="carriage1"/>
     <child link="arml1"/>
-    <origin xyz="0.06 -0.005 0"/>
+    <origin xyz="0.0625 -0.105 0"/>
   </joint>
 
 
   <link name="arml2">
     <visual>
+       <origin rpy="1.57059633 0 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
-  <joint name="carriage1 to arml2" type="fixed">
-    <parent link="carriage1"/>
+  <joint name="carriage2 to arml2" type="fixed">
+    <parent link="carriage2"/>
     <child link="arml2"/>
-    <origin xyz="0.06 0.005 0"/>
+    <origin xyz="0.0625 0.105 0"/>
   </joint>
 
     
 
   <link name="armr1">
     <visual>
+       <origin rpy="1.57059633 0 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="-0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
   <joint name="carriage1 to armr1" type="fixed">
     <parent link="carriage1"/>
     <child link="armr1"/>
-    <origin xyz="-0.06 -0.005 0"/>
+    <origin xyz="-0.0625 -0.105 0"/>
   </joint>
+
+    
 
   <link name="armr2">
     <visual>
+       <origin rpy="1.57059633 0 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="-0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
-  <joint name="carriage1 to armr2" type="fixed">
-    <parent link="carriage1"/>
+  <joint name="carriage2 to armr2" type="fixed">
+    <parent link="carriage2"/>
     <child link="armr2"/>
-    <origin xyz="-0.06 0.005 0"/>
+    <origin xyz="-0.0625 0.105 0"/>
   </joint>
 
-
-<link name="arml3">
+  <link name="arml3">
     <visual>
+       <origin rpy="1.570596330 3.141592 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
-  <joint name="carriage2 to arml3" type="fixed">
-    <parent link="carriage2"/>
+  <joint name="carriage1 to arml3" type="fixed">
+    <parent link="carriage1"/>
     <child link="arml3"/>
-    <origin xyz="0.06 -0.005 0"/>
+    <origin xyz="0.0625 -0.09 0"/>
   </joint>
 
 
   <link name="arml4">
     <visual>
+       <origin rpy="1.57059633 3.141592 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
   <joint name="carriage2 to arml4" type="fixed">
     <parent link="carriage2"/>
     <child link="arml4"/>
-    <origin xyz="0.06 0.005 0"/>
+    <origin xyz="0.0625 0.09 0"/>
   </joint>
-
     
 
   <link name="armr3">
     <visual>
+       <origin rpy="1.57059633 3.141592 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="-0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
-  <joint name="carriage2 to armr4" type="fixed">
-    <parent link="carriage2"/>
-    <child link="armr1"/>
-    <origin xyz="-0.06 -0.005 0"/>
+  <joint name="carriage1 to armr3" type="fixed">
+    <parent link="carriage1"/>
+    <child link="armr3"/>
+    <origin xyz="-0.0625 -0.09 0"/>
   </joint>
+    
 
   <link name="armr4">
     <visual>
+       <origin rpy="1.57059633 3.141592 1.57079633" xyz="0 0 0"/>
       <geometry>
-        <box size="0.005 0.05 0.005"/>
+        <mesh filename="model://actuatorBot/meshes/arm1.dae"/>
       </geometry>
-      <material name="red"/>
-      <origin rpy="0 0 0" xyz="-0.0025 0.02 0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.005 0.05 0.003"/>
+      </geometry>
+    </collision>
   </link>
   <joint name="carriage2 to armr4" type="fixed">
     <parent link="carriage2"/>
-    <child link="armr2"/>
-    <origin xyz="-0.06 0.005 0"/>
+    <child link="armr4"/>
+    <origin xyz="-0.0625 0.09 0"/>
   </joint>
+    
 </robot>
-
 
 
 
