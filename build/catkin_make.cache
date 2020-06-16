@@ -1,0 +1,2 @@
+control_toolbox:gazeboBot:pegasus_gazebo_plugins:realtime_tools:robot
+-DCATKIN_DEVEL_PREFIX=/home/cory/fenestration/devel -DCMAKE_INSTALL_PREFIX=/home/cory/fenestration/install -G Unix Makefiles
