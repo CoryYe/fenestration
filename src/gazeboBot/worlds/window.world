@@ -12,5 +12,6 @@
       <name>test frame</name>
       <pose>0 0 0 0 0 0</pose>
     </include>
+    
   </world>
 </sdf>
